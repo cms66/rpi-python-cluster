@@ -50,6 +50,18 @@ def setup_nfs_client():
 	os.system("sed -i 's/NEED_STATD=/NEED_STATD=no/g' /etc/default/nfs-common")
 	os.system("sed -i 's/NEED_IDMAPD=/NEED_IDMAPD=yes/g' /etc/default/nfs-common")
 
+def setup_firewall():
+	usropt = input("Allow remote ssh acces (y/n): ").lower()
+	if usropt == "y":
+		os.system("yes | sudo ufw allow ssh")
+	else:
+		#os.system("yes | sudo ufw allow from " + arrconf["subnet"] + " to any port ssh")
+		os.system("yes | sudo ufw allow from 192.168.0.0/24 to any port ssh")
+		
+	os.system("sudo ufw logging on")
+	os.system("yes | sudo ufw enable")
+	input("Firewall setup done, press enter to continue")
+	
 def main():
 	read_config()
 	set_default_shell()
