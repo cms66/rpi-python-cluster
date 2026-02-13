@@ -1,0 +1,2 @@
+# Format
+#ip  hostname  hostname.local
