@@ -3,6 +3,8 @@ import os
 
 hstname = str(os.uname()[1])
 usrname = os.getlogin() # Gives user with/without sudo
+usrgid = os.getgid()
+usrid = os.getuid()
 arrconf = {}
 
 # Setup menus
