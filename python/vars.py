@@ -22,6 +22,6 @@ mnuMainFull = [
 "System summary#run_bash('show_system_summary')",
 "SSH keys#show_menu(pv.mnuSSHFull)",
 "Check logs#check_logs",
-"Test#run_bash('bash_test')",
+"Test#show_user()",
 "Data management#show_menu(pv.mnuDataFull)",
 "Back|Quit#"]
