@@ -23,5 +23,5 @@ read_config()
 
 bash_test()
 {
-	read -p "bash_test in functions.sh. Git dir = ${arrconf[@]}"
+	read -p "bash_test in functions.sh. Git = ${arrconf[gitlocaldir]}"
 }
