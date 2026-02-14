@@ -7,7 +7,7 @@ import python.vars as pv
 def main():
 	input("Python main start")
 	#pf.run_bash('show_vars; test_func')
-  pf.update_setup()
+	pf.update_setup()
 	input("Python main end")
 
 if __name__ == "__main__":
