@@ -104,6 +104,7 @@ def main():
 	setup_firewall()
 	os.system("chown -R " + usrname + ":" + usrname + " /data/*")
 	input("Setup done, press enter to continue (reboot recommended)")
+	os.remove(__file__)
 
 if __name__ == "__main__":
 	main()
