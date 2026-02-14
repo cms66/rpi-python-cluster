@@ -55,6 +55,7 @@ def update_setup():
 	giturl = "".join(strurl.splitlines())
 	cmd = "git pull " + giturl
 	os.chdir(gitdir)
+	os.system("git stash")
 	os.system(cmd)
 	input("Git setup done, press enter to continue")
 
