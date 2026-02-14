@@ -4,7 +4,8 @@ import os
 import python.vars as pv
 
 def run_bash(func):
-	bashfile = os.path.dirname(__file__) + "/bash/functions.sh".strip()
+	#bashfile = os.path.dirname(__file__) + "/bash/functions.sh".strip()
+	bashfile = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'bash/functions.sh')
 	strcmd = "source " + bashfile + "; source_bash; read_config; " + func
 	os.system(strcmd)
 	input("Command done, press enter to continue")
