@@ -9,3 +9,7 @@ source_bash()
 	done
 }
 
+bash_test()
+{
+	read -p "bash_test in functions.sh"
+}
