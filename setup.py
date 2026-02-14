@@ -94,14 +94,14 @@ def main():
 	os.system("sed -i 's/#FallbackNTP/FallbackNTP/g' /etc/systemd/timesyncd.conf")
 	os.system("sed -i 's/default/latest/g' /etc/default/rpi-eeprom-update")
 	os.system("touch /etc/cloud/cloud-init.disabled")
-	strdir = arrconf["gitlocaldir"] + "/" +  arrconf["gitrepo"].strip()
-	gitdir = "".join(strdir.splitlines())
-	strcmd = "source " + gitdir + "/bash/setup.sh; update_hosts; setup_fail2ban; create_venv"
-	os.system(strcmd)
 	setup_nfs_client()
 	setup_git()
 	update_bashrc()
 	setup_firewall()
+	strdir = arrconf["gitlocaldir"] + "/" +  arrconf["gitrepo"].strip()
+	gitdir = "".join(strdir.splitlines())
+	strcmd = "source " + gitdir + "/bash/setup.sh; update_hosts; setup_fail2ban; create_venv"
+	os.system(strcmd)
 	os.system("chown -R " + usrname + ":" + usrname + " /data/*")
 	input("Setup done, press enter to continue (reboot recommended)")
 	os.remove(__file__)
