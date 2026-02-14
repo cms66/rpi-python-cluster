@@ -5,8 +5,8 @@ import python.vars as pv
 
 def show_user():
 	print("Username: " + pv.usrname + "\n")
-	print("User ID: " + pv.usrid + "\n")
-	print("Group ID: " + pv.usrgid + "\n")
+	print("User ID: " + str(pv.usrid) + "\n")
+	print("Group ID: " + str(pv.usrgid) + "\n")
 	input("Done, press enter to continue")
 	
 def run_bash(func):
