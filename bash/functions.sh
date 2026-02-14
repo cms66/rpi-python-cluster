@@ -9,14 +9,3 @@ source_bash()
 	done
 }
 
-update_hosts()
-{
-	input="/boot/firmware/hosts.txt"
-	echo "127.0.0.1	localhost" > /etc/hosts
-	echo "127.0.1.1	$(hostname)" >> /etc/hosts
-	echo "# Local nodes" >> /etc/hosts
-	while IFS= read -r line
-	do
-  		echo "$line" >> /etc/hosts
-	done < "$input"
-}
