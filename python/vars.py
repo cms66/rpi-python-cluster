@@ -4,7 +4,7 @@ import os
 hstname = str(os.uname()[1])
 usrname = os.getlogin() # Gives user with/without sudo
 #multipi:x:1000:1000
-usrid = os.system("cat /etc/passwd | grep " + usrname + " cut -d ':' -f 3")
+usrid = os.system("cat /etc/passwd | grep " + usrname + " cut -d ':' -f3")
 arrconf = {}
 
 # Setup menus
