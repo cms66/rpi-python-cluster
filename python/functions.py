@@ -3,6 +3,12 @@
 import os
 import python.vars as pv
 
+def show_user():
+	print("Username: " + usrname + "\n")
+	print("User ID: " + usrid + "\n")
+	print("Group ID: " + usrgid + "\n")
+	input("Done, press enter to continue")
+	
 def run_bash(func):
 	#bashfile = os.path.dirname(__file__) + "/bash/functions.sh".strip()
 	bashfile = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'bash/functions.sh')
