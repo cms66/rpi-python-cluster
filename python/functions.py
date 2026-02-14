@@ -4,8 +4,8 @@ import os
 import python.vars as pv
 
 def set_owner(path):
-	id = 1000
-#os.chmod(path, id, id)
+	id = pv.usrid
+	input("ID = " + id)
 	for root, dirs, files in os.walk(path):
 		# set perms on sub-directories  
 		for momo in dirs:
