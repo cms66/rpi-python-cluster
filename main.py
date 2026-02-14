@@ -8,7 +8,8 @@ def main():
 	input("Python main start")
 	pf.read_config()
 	#pf.run_bash('show_vars; test_func')
-	pf.update_setup()
+	#pf.update_setup()
+	print("Git dir = " + pv.arrconf['gitlocaldir'] + "\n")
 	input("Python main end")
 
 if __name__ == "__main__":
