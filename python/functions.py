@@ -22,7 +22,7 @@ def update_setup():
 	gitdir = "".join(strdir.splitlines())
 	strurl = "https://github.com/" +  pv.arrconf["gituser"] + "/" +  pv.arrconf["gitrepo"] + ".git".strip()
 	giturl = "".join(strurl.splitlines())
-	cmd = "git pull " + giturl + " " + gitdir
+	cmd = "git pull " + giturl
 	os.chdir(gitdir)
 	os.system(cmd)
 	input("Git setup done, press enter to continue")
