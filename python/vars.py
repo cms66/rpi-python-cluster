@@ -20,6 +20,6 @@ mnuMainFull = [
 "System summary#run_bash('show_system_summary')",
 "SSH keys#show_menu(pv.mnuSSHFull)",
 "Check logs#check_logs",
-"Test#show_user()",
+"Test#set_owner('/data/current/src/git', pv.usrname)",
 "Data management#show_menu(pv.mnuDataFull)",
 "Back|Quit#"]
