@@ -94,7 +94,9 @@ def main():
 	#os.system("sed -i 's/#FallbackNTP/FallbackNTP/g' /etc/systemd/timesyncd.conf")
 	#os.system("sed -i 's/default/latest/g' /etc/default/rpi-eeprom-update")
 	#os.system("touch /etc/cloud/cloud-init.disabled")
-	strcmd = "source " + arrconf["gitlocaldir"] + "/bash/setup.sh; update_hosts; setup_fail2ban; create_venv"
+	strdir = arrconf["gitlocaldir"] + "/" +  arrconf["gitrepo"].strip()
+	gitdir = "".join(strdir.splitlines())
+	strcmd = "source " + gitdir + "/bash/setup.sh; update_hosts; setup_fail2ban; create_venv"
 	os.system(strcmd)
 	#setup_nfs_client()
 	#setup_git()
