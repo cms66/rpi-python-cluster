@@ -96,7 +96,8 @@ def main():
 	#os.system("touch /etc/cloud/cloud-init.disabled")
 	strdir = arrconf["gitlocaldir"] + "/" +  arrconf["gitrepo"].strip()
 	gitdir = "".join(strdir.splitlines())
-	strcmd = "source " + gitdir + "/bash/setup.sh; update_hosts; setup_fail2ban; create_venv"
+	#strcmd = "source " + gitdir + "/bash/setup.sh; update_hosts; setup_fail2ban; create_venv"
+	strcmd = "source " + gitdir + "/bash/setup.sh; create_venv"
 	os.system(strcmd)
 	#setup_nfs_client()
 	#setup_git()
