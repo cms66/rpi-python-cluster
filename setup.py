@@ -83,26 +83,25 @@ def update_bashrc():
 
 def main():
 	read_config()
-	#set_default_shell()
-	#create_users()
-	#setup_slurm_dirs()
-	#update_system()
+	set_default_shell()
+	create_users()
+	setup_slurm_dirs()
+	update_system()
 	# Modify new + existing installs
-	#os.system("sed -i 's/rootwait/rootwait cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory swapaccount=1 systemd.unified_cgroup_hierarchy=0 ipv6.disable=1/g' /boot/firmware/cmdline.txt")
-	#os.system("sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/g' /etc/ssh/sshd_config")
-	#os.system("sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/g' /etc/ssh/sshd_config")
-	#os.system("sed -i 's/#FallbackNTP/FallbackNTP/g' /etc/systemd/timesyncd.conf")
-	#os.system("sed -i 's/default/latest/g' /etc/default/rpi-eeprom-update")
-	#os.system("touch /etc/cloud/cloud-init.disabled")
+	os.system("sed -i 's/rootwait/rootwait cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory swapaccount=1 systemd.unified_cgroup_hierarchy=0 ipv6.disable=1/g' /boot/firmware/cmdline.txt")
+	os.system("sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/g' /etc/ssh/sshd_config")
+	os.system("sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/g' /etc/ssh/sshd_config")
+	os.system("sed -i 's/#FallbackNTP/FallbackNTP/g' /etc/systemd/timesyncd.conf")
+	os.system("sed -i 's/default/latest/g' /etc/default/rpi-eeprom-update")
+	os.system("touch /etc/cloud/cloud-init.disabled")
 	strdir = arrconf["gitlocaldir"] + "/" +  arrconf["gitrepo"].strip()
 	gitdir = "".join(strdir.splitlines())
-	#strcmd = "source " + gitdir + "/bash/setup.sh; update_hosts; setup_fail2ban; create_venv"
-	strcmd = "source " + gitdir + "/bash/setup.sh; create_venv"
+	strcmd = "source " + gitdir + "/bash/setup.sh; update_hosts; setup_fail2ban; create_venv"
 	os.system(strcmd)
-	#setup_nfs_client()
-	#setup_git()
-	#update_bashrc()
-	#setup_firewall()
+	setup_nfs_client()
+	setup_git()
+	update_bashrc()
+	setup_firewall()
 	os.system("chown -R " + usrname + ":" + usrname + " /data/*")
 	input("Setup done, press enter to continue (reboot recommended)")
 
