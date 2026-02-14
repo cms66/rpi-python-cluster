@@ -23,5 +23,5 @@ read_config()
 
 bash_test()
 {
-	read -p "bash_test in functions.sh. Git dir = $arrconf['gitlocaldir']"
+	read -p "bash_test in functions.sh. Git dir = ${arrconf[imgdirectory]}"
 }
