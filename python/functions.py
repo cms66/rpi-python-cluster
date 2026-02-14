@@ -4,8 +4,8 @@ import os
 import python.vars as pv
 
 def run_bash(func):
-	bashfile = os.path.dirname(__file__) + "/bash/functions.sh"
-	bashfile = os.getcwd().replace("python", "bash") + "/functions.sh"
+	#bashfile = os.path.dirname(__file__) + "/bash/functions.sh"
+	bashfile = os.path.dirname(__file__).replace("python", "bash") + "/functions.sh"
 	print("File = " + bashfile)
 	#strcmd = "source " + bashfile + "; source_bash; " + func
 	#os.system(strcmd)
