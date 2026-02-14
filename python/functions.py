@@ -3,12 +3,17 @@
 import os
 import python.vars as pv
 
-def show_user():
-	print("Username: " + pv.usrname + "\n")
-	print("User ID: " + str(pv.usrid) + "\n")
-	print("Group ID: " + str(pv.usrgid) + "\n")
-	input("Done, press enter to continue")
-	
+def set_owner(path):
+	id = 1000
+#os.chmod(path, id, id)
+	for root, dirs, files in os.walk(path):
+		# set perms on sub-directories  
+		for momo in dirs:
+			os.chown(os.path.join(root, momo), id, id)
+		# set perms on files
+		for momo in files:
+			os.chown(os.path.join(root, momo), id, id)
+
 def run_bash(func):
 	#bashfile = os.path.dirname(__file__) + "/bash/functions.sh".strip()
 	bashfile = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'bash/functions.sh')
@@ -64,6 +69,7 @@ def update_setup():
 	os.chdir(gitdir)
 	os.system("git stash")
 	os.system(cmd)
+	set_owner(gitdir)
 	input("Git setup done, press enter to continue")
 
 def update_system():
