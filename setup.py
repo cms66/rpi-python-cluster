@@ -55,13 +55,33 @@ def setup_firewall():
 	if usropt == "y":
 		os.system("yes | sudo ufw allow ssh")
 	else:
-		#os.system("yes | sudo ufw allow from " + arrconf["subnet"] + " to any port ssh")
-		os.system("yes | sudo ufw allow from 192.168.0.0/24 to any port ssh")
-		
+		os.system("yes | sudo ufw allow from " + arrconf['subnet'] + " to any port ssh")
+		#os.system("yes | sudo ufw allow from 192.168.0.0/24 to any port ssh")	
 	os.system("sudo ufw logging on")
 	os.system("yes | sudo ufw enable")
 	input("Firewall setup done, press enter to continue")
-	
+
+def setup_git():
+	strdir = arrconf["gitlocaldir"] + "/" +  arrconf["gitrepo"].strip()
+	gitdir = "".join(strdir.splitlines())
+	os.makedirs(gitdir)
+	strurl = "https://github.com/" +  arrconf["gituser"] + "/" +  arrconf["gitrepo"] + ".git".strip()
+	giturl = "".join(strurl.splitlines())
+	cmd = "git clone " + giturl + " " + gitdir
+	os.system(cmd)
+	input("Git setup done, press enter to continue")
+
+def update_bashrc():
+	strfile = "/home/" + usrname + "/.bashrc"
+	strdir = arrconf["gitlocaldir"] + "/" +  arrconf["gitrepo"].strip()
+	gitdir = "".join(strdir.splitlines())
+	with open(strfile, "a") as f:
+		f.write("alias spo='sudo poweroff'\n")
+		f.write("alias spr='sudo reboot'\n")
+		f.write("alias lsb='sudo udevadm trigger; lsblk'\n")
+		f.write("alias mps='sudo python " + gitdir + "/main.py'\n")
+		input("bashrc update done, press enter to continue")
+
 def main():
 	read_config()
 	set_default_shell()
@@ -76,10 +96,10 @@ def main():
 	os.system("sed -i 's/default/latest/g' /etc/default/rpi-eeprom-update")
 	os.system("touch /etc/cloud/cloud-init.disabled")
 	setup_nfs_client()
-	#setup_git()
-	#update_bashrc()
-	#setup_firewall()
-	#os.system("chown -R " + usrname + ":" + usrname + " /data/*")
+	setup_git()
+	update_bashrc()
+	setup_firewall()
+	os.system("chown -R " + usrname + ":" + usrname + " /data/*")
 	input("Setup done, press enter to continue (reboot recommended)")
 
 #def main():
