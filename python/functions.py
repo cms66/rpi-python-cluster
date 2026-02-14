@@ -58,3 +58,7 @@ def update_setup():
 	os.system(cmd)
 	input("Git setup done, press enter to continue")
 
+def update_system():
+	os.system("sudo apt-get -y update")
+	os.system("sudo apt-get -y full-upgrade")
+	input("System update done, press enter to continue")
