@@ -26,3 +26,4 @@ def update_setup():
 	os.chdir(gitdir)
 	os.system(cmd)
 	input("Git setup done, press enter to continue")
+
