@@ -34,8 +34,8 @@ create_venv()
 	printf "%s\n" "Creating python Virtual Environment"
 	python -m venv --system-site-packages /home/$usrname/.venv
   	# Create Bash shortcuts to activate/deactivate Virtual Envirnment
-	echo "alias mvp=\"source ~/.venv/bin/activate\"" >> /home/$usrname/.bashrc
-	echo "alias dvp=\"deactivate\"" >> /home/$usrname/.bashrc
+	echo "alias mvp='source ~/.venv/bin/activate'" >> /home/$usrname/.bashrc
+	echo "alias dvp='deactivate'" >> /home/$usrname/.bashrc
 	chown -R $usrname:$usrname /home/$usrname/.venv
 	printf "%s\n" "Python Virtual Environment created"
 }
