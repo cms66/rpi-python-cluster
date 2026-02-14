@@ -35,7 +35,7 @@ def show_menu(menu):
 		os.system("clear")
 		for item in menu: # Show menu
 			if menu.index(item) == 0: # Print underlined title + hostname
-				print("\u0332".join(item.split("#")[0] + " (" + pv.hstname + ")"))
+				print("\u0332".join(item.split("#")[0] + " (" + pv.hstname + " - " + pv.usrname + )"))
 			else:
 				print(f"{menu.index(item)})\t {item.split("#")[0]}".expandtabs(2))
 		try: # Process input
