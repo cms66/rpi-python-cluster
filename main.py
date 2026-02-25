@@ -2,7 +2,7 @@
 
 import os
 import python.functions as pf
-import python.vars as pv
+import python.variables as pv
 	
 def main():
 	pf.read_config()
