@@ -1,5 +1,8 @@
 # rpi-python-cluster
 Python setup and management for a home RPi cluster
+## First setup
+- Burn image
+- Create files in visible partition
 - Login as created user and run 
 ```
 wget https://raw.githubusercontent.com/cms66/rpi-python-cluster/main/setup.py; sudo python ./setup.py
