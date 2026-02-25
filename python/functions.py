@@ -6,6 +6,7 @@ import python.vars as pv
 def set_owner(path, user):
 	input("User = " + user)
 	input("Path = " + path)
+	id = user
 	for root, dirs, files in os.walk(path):
 		# set perms on sub-directories  
 		for momo in dirs:
