@@ -27,3 +27,15 @@ mnuMainFull = [
 "System summary#run_bash('show_system_summary')",
 "Test#set_owner('/data/current/src/git', pv.usrname)",
 "Back|Quit#"]
+
+mnuHardwareFull=[
+"Setup - Hardware menu#",
+"PCIe#run_bash('setup_pcie')",
+"Camera - CSI#run_bash('setup_camera_csi')",
+"Camera - USB#run_bash('setup_camera_usb')",
+"I2C#run_bash('setup_i2c')",
+"Python - USB#run_bash('setup_python_usb')",
+"GPS#run_bash('setup_gps_pa1010D')",
+"HC-SR04#run_bash('setup_hcsr04')",
+"Hailo-8#run_bash('setup_hailo')",
+"Back|Quit#"]
