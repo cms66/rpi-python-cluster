@@ -21,9 +21,9 @@ mnuMainFull = [
 "Modules#show_menu(pv.mnuModulesFull)",
 "OpenCV#show_menu(pv.mnuOpenCVFull)",
 "SDM#show_menu(pv.mnuSDMFull)",
-"System summary#run_bash('show_system_summary')",
 "SSH keys#show_menu(pv.mnuSSHFull)",
 "Check logs#check_logs",
-"Test#set_owner('/data/current/src/git', pv.usrname)",
 "Data management#show_menu(pv.mnuDataFull)",
+"System summary#run_bash('show_system_summary')",
+"Test#set_owner('/data/current/src/git', pv.usrname)",
 "Back|Quit#"]
