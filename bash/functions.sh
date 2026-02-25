@@ -21,8 +21,18 @@ read_config()
 	done < "$input"
 }
 
-bash_test()
+check_pi_model()
 {
-	read -p "bash_test in functions.sh. Git = ${arrconf[gitlocaldir]}"
-	read -p "bash_test in functions.sh. Git dir = $arrconf[gitlocaldir]"
+	pimodel=$(cat /sys/firmware/devicetree/base/model | cut -d " " -f3- | tr -d "\0")
+	pimodeltype=$(echo $pimodel | cut -d " " -f1)
+	if [[ "$pimodeltype" =~ ^[0-9]+$ ]]; then # Integer so Pi series 1 - 5
+		echo "Pi$pimodeltype"
+	elif  [ $pimodeltype = "Compute" ]; then
+		compnum=$(echo $pimodel | cut -d " " -f3)
+		echo "CM$compnum"
+	elif  [ $pimodeltype = "Zero" ]; then
+		compnum=$(echo $pimodel | cut -d " " -f2)
+		echo "Zero$compnum"
+	fi
 }
+
