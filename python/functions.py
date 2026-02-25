@@ -72,7 +72,7 @@ def update_setup():
 	os.chdir(gitdir)
 	os.system("git stash")
 	os.system(cmd)
-	set_owner(gitdir, "multipi")
+	set_owner(gitdir, pv.usrid)
 	input("Git setup done, press enter to continue")
 
 def update_system():
