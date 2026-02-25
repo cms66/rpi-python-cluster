@@ -1,7 +1,7 @@
 # Python functions
 
 import os
-import python.vars as pv
+import python.variables as pv
 
 def set_owner(path, user):
 	id = pv.usrid
