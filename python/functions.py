@@ -4,9 +4,10 @@ import os
 import python.vars as pv
 
 def set_owner(path, user):
+	id = pv.usrid
 	input("User = " + user)
+	input("ID = " + id)
 	input("Path = " + path)
-	id = user
 	for root, dirs, files in os.walk(path):
 		# set perms on sub-directories  
 		for momo in dirs:
