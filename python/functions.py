@@ -5,7 +5,7 @@ import python.vars as pv
 
 def set_owner(path, user):
 	id = pv.usrid
-	input("User = " + user)
+	input("User = " + str(user))
 	input("ID = " + str(id))
 	input("Path = " + path)
 	for root, dirs, files in os.walk(path):
