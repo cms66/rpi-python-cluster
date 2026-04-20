@@ -3,7 +3,7 @@
 source_bash()
 {
 	# Source setup shell scripts in same directory
-	bashdir="/data/current/src/git/rpi-python-cluster/bash/"
+	bashdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 	for file in $(find $bashdir -type f -name "*.sh" ! -name $(basename "$0"));
 	do
   		source $file;
