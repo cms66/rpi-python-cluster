@@ -39,3 +39,15 @@ mnuHardwareFull=[
 "HC-SR04#run_bash('setup_hcsr04')",
 "Hailo-8#run_bash('setup_hailo')",
 "Back|Quit#"]
+
+mnuSDMFull=[
+"Setup - SDM menu#",
+"Install - SDM - Server#run_bash('install_sdm_server')",
+"Install - SDM - Client#run_bash('install_sdm_client')",
+"Download latest images#run_bash('download_latest_os_images')",
+"Modify image#run_bash('modify_sdm_image')",
+"Burn image#run_bash('burn_sdm_image')",
+"Explore image#run_bash('explore_sdm_image')",
+"Edit configuration#run_bash('edit_sdm_config')",
+"Show configuration#run_bash('show_sdm_config')",
+"Back|Quit#"]
