@@ -51,3 +51,9 @@ mnuSDMFull=[
 "Edit configuration#run_bash('edit_sdm_config')",
 "Show configuration#run_bash('show_sdm_config')",
 "Back|Quit#"]
+
+mnuModulesFull=[
+"Setup - Modules menu#",
+"Install - Modules - Server#run_bash('install_modules_server')",
+"Install - Modules - Client#run_bash('install_modules_client')",
+"Back|Quit#"]
