@@ -94,6 +94,7 @@ def main():
 	os.system("sed -i 's/#FallbackNTP/FallbackNTP/g' /etc/systemd/timesyncd.conf")
 	os.system("sed -i 's/default/latest/g' /etc/default/rpi-eeprom-update")
 	os.system("touch /etc/cloud/cloud-init.disabled")
+	os.system("loginctl enable-linger")
 	setup_nfs_client()
 	setup_git()
 	update_bashrc()
