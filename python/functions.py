@@ -19,7 +19,7 @@ def run_bash(func):
 	#bashfile = "/data/current/src/git/rpi-python-cluster/bash/functions.sh"
 	strcmd = "source " + bashfile + "; source_bash; read_config; " + func
 	os.system(strcmd)
-	input("Command done, press enter to continue")
+	#input("Command done, press enter to continue")
 
 def read_config():
 	conf = "/boot/firmware/custom.conf"
@@ -71,7 +71,7 @@ def update_setup():
 	os.system("git stash")
 	os.system(cmd)
 	set_owner(gitdir, pv.usrid)
-	input("Git setup done, press enter to continue")
+	input("Setup update done, press enter to continue")
 
 def update_system():
 	os.system("sudo apt-get -y update")
