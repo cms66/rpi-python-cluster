@@ -23,7 +23,6 @@ def set_default_shell():
 	os.system("ln -sf bash /bin/sh")
 	os.system("dpkg-divert --add --local --no-rename /usr/share/man/man1/sh.1.gz")
 	os.system("dpkg-divert --add --local --no-rename /bin/sh")
-	#os.system("exec $SHELL;exit")
 	input("Default shell set to Bash, press enter to continue")
 
 def create_users():
@@ -49,6 +48,7 @@ def setup_slurm_dirs():
 def setup_nfs_client():
 	os.system("sed -i 's/NEED_STATD=/NEED_STATD=no/g' /etc/default/nfs-common")
 	os.system("sed -i 's/NEED_IDMAPD=/NEED_IDMAPD=yes/g' /etc/default/nfs-common")
+	input("NFS client settings updated, press enter to continue")
 
 def setup_firewall():
 	usropt = input("Allow remote ssh acces (y/n): ").lower()
@@ -79,7 +79,7 @@ def update_bashrc():
 		f.write("alias spr='sudo reboot'\n")
 		f.write("alias lsb='sudo udevadm trigger; lsblk'\n")
 		f.write("alias mps='sudo python " + gitdir + "/main.py'\n")
-		input("bashrc update done, press enter to continue")
+	input("bashrc update done, press enter to continue")
 
 def main():
 	read_config()
