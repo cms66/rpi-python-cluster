@@ -20,10 +20,10 @@ install_sdm_server()
     # Default setup - install to /usr/local/sdm
 	curl -L https://raw.githubusercontent.com/gitbls/sdm/master/install-sdm | bash
   	# Create directories for images
-   	#defdir="$defdatadir/current/sdm/images"
-	defdir="${arrconf[imgdirectory]}"
-  	read -rp "Path to image directory (press enter for default = $defdir): " userdir
-	imgdir=${userdir:="$defdir"}
+	defdir="${arrconf[imgdirectory]}" # /data/current
+	defimgdir="$defdir/sdm/images"
+  	read -rp "Path to image directory (press enter for default = $defimgdir): " userdir
+	imgdir=${userdir:="$defimgdir"}
   	mkdir -p $imgdir/current
   	mkdir -p $imgdir/latest
    	mkdir -p $imgdir/archive
@@ -34,10 +34,10 @@ install_sdm_server()
 
 install_sdm_client()
 {
-   	#defdir="$defdatadir/current/sdm/images"
-	defdir="${arrconf[imgdirectory]}"
-  	read -rp "Path to image directory (press enter for default = $defdir): " userdir
-	imgdir=${userdir:="$defdir"}
+	defdir="${arrconf[imgdirectory]}" # /data/current
+	defimgdir="$defdir/sdm/images"
+  	read -rp "Path to image directory (press enter for default = $defimgdir): " userdir
+	imgdir=${userdir:="$defimgdir"}
 	echo "imgdirectory=$imgdir" >> /boot/firmware/custom.conf
 	read -p "SDM Client install done, press enter to continue"
 }
