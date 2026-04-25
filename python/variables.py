@@ -64,3 +64,10 @@ mnuSSHFull=[
 "Copy user key to host#run_bash('copy_user_ssh_keys')",
 "Remove host from known hosts#run_bash('delete_node_from_known_hosts')",
 "Back|Quit#"]
+
+mnuNFSFull=[
+"Setup - NFS menu#",
+"Install - NFS - Server#run_bash('install_nfs_server')",
+"Add NFS local export#run_bash('add_nfs_local')",
+"Add NFS remote mount#run_bash('add_nfs_remote')",
+"Back|Quit#"]
