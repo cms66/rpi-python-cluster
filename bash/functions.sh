@@ -37,6 +37,25 @@ check_pi_model()
 	fi
 }
 
+get_subnet_cidr()
+{
+	wired="$(nmcli -t connection show --active | grep ethernet | cut -f 4 -d ":")"
+	wifi="$(nmcli -t connection show --active | grep wireless | cut -f 4 -d ":")"
+ 	if [[ $wifi ]] && [[ $wired ]]; then # Multiple connections
+		read -p "Use ethernet or wifi for setup? (e/w): " inp
+		if [[ ${inp,} = "e" ]]; then
+			dev=$wired
+		elif [[ ${inp,} = "w" ]]; then
+			dev=$wifi
+		else
+			printf "invalid option"
+		fi
+	else # Single connection
+		dev="$wifi$wired" 
+	fi
+ 	export localnet=$(nmcli -t device show $dev | grep "ROUTE\[1\]" | cut -f 2 -d "=" | tr -d '[:blank:]' | sed "s/,nh//")
+}
+	
 # SSH functions
 #--------------
 create_user_ssh_keys()
@@ -72,10 +91,11 @@ install_nfs_server()
  	#statnfs=$(check_package_status nfs-kernel-server y) # Check installed + install if not
 	statnfs="d"
 	if [[ $statnfs = "d" ]]; then # Setup server
+		apt-get -y install nfs-kernel-server
 	 	# Enforce NFSv4
 		echo "RPCMOUNTDOPTS=\"--manage-gids -N 2 -N 3\"" >> /etc/default/nfs-kernel-server
 		echo "RPCNFSDOPTS=\"-N 2 -N 3\"" >> /etc/default/nfs-kernel-server
-    	get_subnet_cidr
+		get_subnet_cidr
     	yes | sudo ufw allow from $localnet to any port nfs
 		read -p "NFS Server setup done, press any key to continue"
 	else
