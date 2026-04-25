@@ -37,3 +37,24 @@ check_pi_model()
 	fi
 }
 
+# SSH functions
+#--------------
+create_user_ssh_keys()
+{
+	# Create keys for user
+	runuser -l  $usrname -c "ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -P \"\"" # Works including creates .ssh directory
+	echo "HostKey $usrpath/.ssh/id_ed25519" >> /etc/ssh/sshd_config
+	service sshd restart # Works
+ 	read -p "Server keys generated for $usrname, press enter to return to menu" inp
+}
+
+copy_user_ssh_keys()
+{
+	read -p "Remote node: " remnode
+	sudo -u $usrname ssh-copy-id -i $usrpath/.ssh/id_ed25519 $usrname@$remnode
+}
+delete_node_from_known_hosts()
+{
+	read -p "Remote node: " remnode
+	sudo -u $usrname ssh-keygen -f "$usrpath/.ssh/known_hosts" -R $remnode
+}
