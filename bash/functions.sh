@@ -109,10 +109,10 @@ add_nfs_local()
 	get_subnet_cidr
 	install_nfs_server
    	# Check mount type
-    read -p "System mount (default $defsysdir) or Data share? (s/d) " inp
+    read -p "System mount (default arrconf[defsysdir]) or Data share? (s/d) " inp
     if [[ ${inp,} = "s" ]]; then # System mount
-    	read -p "Path of directory to be shared (press enter for default = $defsysdir): " userdir
-		nfsdir=${userdir:="$defsysdir"}
+    	read -p "Path of directory to be shared (press enter for default = arrconf[defsysdir]): " userdir
+		nfsdir=${userdir:=arrconf[defsysdir]}
 		# Check mount exists
 		if grep -F "$nfsdir" "/etc/exports"
 		then
