@@ -57,3 +57,10 @@ mnuModulesFull=[
 "Install - Modules - Server#run_bash('install_modules_server')",
 "Install - Modules - Client#run_bash('install_modules_client')",
 "Back|Quit#"]
+
+mnuSSHFull=[
+"Setup - SSH menu#",
+"Create user keys#run_bash('create_user_ssh_keys')",
+"Copy user key to host#run_bash('copy_user_ssh_keys')",
+"Remove host from known hosts#run_bash('delete_node_from_known_hosts')",
+"Back|Quit#"]
