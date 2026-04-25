@@ -25,7 +25,7 @@ mnuMainFull = [
 "Check logs#check_logs",
 "Data management#show_menu(pv.mnuDataFull)",
 "System summary#run_bash('show_system_summary')",
-"Test#set_owner('/data/current/src/git', pv.usrname)",
+"Test#run_bash('show_config')",
 "Back|Quit#"]
 
 mnuHardwareFull=[
