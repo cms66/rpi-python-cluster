@@ -22,6 +22,11 @@ read_config()
 	done < "$input"
 }
 
+show_config()
+{
+	read -p "$arrconf[@]" inp
+}
+
 check_pi_model()
 {
 	pimodel=$(cat /sys/firmware/devicetree/base/model | cut -d " " -f3- | tr -d "\0")
