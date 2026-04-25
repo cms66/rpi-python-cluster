@@ -24,7 +24,7 @@ read_config()
 
 show_config()
 {
-	read -p "$arrconf[@]" inp
+	read -p "$arrconf[wifissid]" inp
 }
 
 check_pi_model()
